@@ -11,6 +11,7 @@ public interface IBaseRepository<T> where T : class
     Task<List<T>> GetAllAsync();
     Task<List<T>> GetAllAsync(Func<IQueryable<T>, IOrderedQueryable<T>> orderBy);
     Task<List<T>> GetAllAsync(Expression<Func<T, bool>> predicate);
+    Task<IReadOnlyList<T>> GetPagedAsync(int page, int size);
     Task InsertAsync(T entity);
     Task InsertRangeAsync(List<T> entities);
     Task UpdateAsync(T entity);

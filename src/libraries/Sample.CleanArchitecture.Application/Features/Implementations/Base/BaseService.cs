@@ -1,4 +1,5 @@
-﻿using Sample.CleanArchitecture.Application.Features.Interfaces.Base;
+﻿using Microsoft.EntityFrameworkCore;
+using Sample.CleanArchitecture.Application.Features.Interfaces.Base;
 using Sample.CleanArchitecture.Application.Infrastructure;
 
 namespace Sample.CleanArchitecture.Application.Features.Implementations.Base;
@@ -48,6 +49,10 @@ public class BaseService<T> : IBaseService<T> where T : class
         return list;
     }
 
+    public async virtual Task<IReadOnlyList<T>> GetPagedAsync(int page, int size)
+    {
+        return await _repository.GetPagedAsync(page, size);
+    }
 
     /// UPDATE
     public virtual async Task<T> UpdateAsync(T entity)

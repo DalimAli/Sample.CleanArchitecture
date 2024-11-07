@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Sample.CleanArchitecture.Application.Infrastructure;
+using Sample.CleanArchitecture.Infrastructure.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,8 @@ namespace Sample.CleanArchitecture.Infrastructure.Repository
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
         readonly DbSet<T> _dbSet;
-        public readonly DbContext _dbContext;
-        public BaseRepository(DbContext dbContext)
+        public readonly ApplicationDbContext _dbContext;
+        public BaseRepository(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
             _dbSet = dbContext.Set<T>();
@@ -48,7 +49,12 @@ namespace Sample.CleanArchitecture.Infrastructure.Repository
         public async Task<List<T>> GetAllAsync(Expression<Func<T, bool>> predicate)
         {
             return await Query().Where(predicate).ToListAsync();
-        }        
+        }
+
+        public async virtual Task<IReadOnlyList<T>> GetPagedAsync(int page, int size)
+        {
+            return await _dbContext.Set<T>().Skip((page - 1) * size).Take(size).AsNoTracking().ToListAsync();
+        }
 
         public virtual async Task InsertAsync(T entity)
         {

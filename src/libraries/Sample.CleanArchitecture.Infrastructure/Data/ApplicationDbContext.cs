@@ -6,7 +6,7 @@ namespace Sample.CleanArchitecture.Infrastructure.Context;
 
 public class ApplicationDbContext : DbContext
 {
-    protected ApplicationDbContext(DbContextOptions contextOptions) : base(options: contextOptions)
+    public ApplicationDbContext(DbContextOptions contextOptions) : base(options: contextOptions)
     {
 
     }

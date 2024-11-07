@@ -11,8 +11,8 @@ namespace Sample.CleanArchitecture.Api
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddInfrastructureServices(builder.Configuration);
-            builder.Services.AddApplicationServices();
+            builder.Services.AddApplicationServices()
+                .AddInfrastructureServices(builder.Configuration);
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();

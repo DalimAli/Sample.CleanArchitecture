@@ -10,8 +10,7 @@ public static class ApplicationServiceRegistration
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
-        //services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
-
+        // services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
         services.AddScoped<ITestService, TestService>();
         return services;
     }

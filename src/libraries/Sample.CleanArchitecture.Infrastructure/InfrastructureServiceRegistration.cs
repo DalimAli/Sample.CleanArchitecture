@@ -22,13 +22,16 @@ namespace Sample.CleanArchitecture.Infrastructure
 
             services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("CleanArchConnectionString")));
+            services.AddDbContext<ApplicationDbContext>((serviceProvider,options) =>
+            {
+                options.AddInterceptors(serviceProvider.GetService<ISaveChangesInterceptor>());
+                options.UseSqlServer(configuration.GetConnectionString("CleanArchConnectionString"));
+                options.LogTo(x => Console.WriteLine(x)); 
+            }
+                );
 
-            // services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
-
-            services.AddScoped<ITestRepository, TestRepository>();
-            
+            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+            services.AddScoped<ITestRepository, TestRepository>();           
 
             return services;
         }

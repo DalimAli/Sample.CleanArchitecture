@@ -24,6 +24,8 @@ public interface IBaseService<T> where T : class
 
     Task<List<T>> GetAllAsync();
 
+    Task<IReadOnlyList<T>> GetPagedAsync(int page, int size);
+
 
     Task<T> UpdateAsync(T entity);
 
