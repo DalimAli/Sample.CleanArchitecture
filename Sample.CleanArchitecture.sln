@@ -7,13 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F10231CE-60E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "apis", "apis", "{0AC01FB4-257B-4D9E-AC66-3C151095AF05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.CleanArchitecture.Api", "src\apis\Sample.CleanArchitecture.Api\Sample.CleanArchitecture.Api.csproj", "{BC1062E0-4A1E-4C84-AD08-5F45C1959D88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.CleanArchitecture.Api", "src\apis\Sample.CleanArchitecture.Api\Sample.CleanArchitecture.Api.csproj", "{BC1062E0-4A1E-4C84-AD08-5F45C1959D88}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libraries", "libraries", "{47ED887C-2764-4644-8D83-9CBF4B732CC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.CleanArchitecture.Domain", "src\libraries\Sample.CleanArchitecture.Domain\Sample.CleanArchitecture.Domain.csproj", "{ADE7042E-516D-495B-9E40-5B3FF1389205}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.CleanArchitecture.Domain", "src\libraries\Sample.CleanArchitecture.Domain\Sample.CleanArchitecture.Domain.csproj", "{ADE7042E-516D-495B-9E40-5B3FF1389205}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.CleanArchitecture.Application", "src\libraries\Sample.CleanArchitecture.Application\Sample.CleanArchitecture.Application.csproj", "{14805EEE-18BE-4BC3-BA52-DB6703FA0F62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.CleanArchitecture.Application", "src\libraries\Sample.CleanArchitecture.Application\Sample.CleanArchitecture.Application.csproj", "{14805EEE-18BE-4BC3-BA52-DB6703FA0F62}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.CleanArchitecture.Infrastructure", "src\libraries\Sample.CleanArchitecture.Infrastructure\Sample.CleanArchitecture.Infrastructure.csproj", "{7DF8C219-4CF3-423F-BE52-E4E8A7F947A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{14805EEE-18BE-4BC3-BA52-DB6703FA0F62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14805EEE-18BE-4BC3-BA52-DB6703FA0F62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14805EEE-18BE-4BC3-BA52-DB6703FA0F62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DF8C219-4CF3-423F-BE52-E4E8A7F947A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DF8C219-4CF3-423F-BE52-E4E8A7F947A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DF8C219-4CF3-423F-BE52-E4E8A7F947A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DF8C219-4CF3-423F-BE52-E4E8A7F947A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +49,7 @@ Global
 		{47ED887C-2764-4644-8D83-9CBF4B732CC4} = {F10231CE-60E3-4B77-BE30-D3070B139A7F}
 		{ADE7042E-516D-495B-9E40-5B3FF1389205} = {47ED887C-2764-4644-8D83-9CBF4B732CC4}
 		{14805EEE-18BE-4BC3-BA52-DB6703FA0F62} = {47ED887C-2764-4644-8D83-9CBF4B732CC4}
+		{7DF8C219-4CF3-423F-BE52-E4E8A7F947A2} = {47ED887C-2764-4644-8D83-9CBF4B732CC4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F6B3690-52C5-4C09-B99A-F60A5DB5E112}
