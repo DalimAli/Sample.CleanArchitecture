@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Sample.CleanArchitecture.Application.Infrastructure;
 using Sample.CleanArchitecture.Infrastructure.Context;
+using Sample.CleanArchitecture.Infrastructure.Data.Interceptor;
 using Sample.CleanArchitecture.Infrastructure.Repository;
 using Sample.CleanArchitecture.Infrastructure.Repository.Feature;
 using System;
@@ -17,6 +19,9 @@ namespace Sample.CleanArchitecture.Infrastructure
     {
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
         {
+
+            services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("CleanArchConnectionString")));
 
