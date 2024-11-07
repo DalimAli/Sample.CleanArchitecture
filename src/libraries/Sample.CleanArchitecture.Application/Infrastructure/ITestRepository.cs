@@ -2,7 +2,7 @@
 
 namespace Sample.CleanArchitecture.Application.Infrastructure;
 
-public interface ITestRepository:IBaseRepository<Test>
+public interface ITestRepository : IBaseRepository<Test>
 {
 
 }
