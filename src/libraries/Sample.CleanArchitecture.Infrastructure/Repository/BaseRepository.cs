@@ -53,37 +53,44 @@ namespace Sample.CleanArchitecture.Infrastructure.Repository
         public virtual async Task InsertAsync(T entity)
         {
             await _dbSet.AddAsync(entity);
+            await _dbContext.SaveChangesAsync();
         }
 
         public virtual async Task InsertRangeAsync(List<T> entities)
         {
             await _dbSet.AddRangeAsync(entities);
+            await _dbContext.SaveChangesAsync();
         }
 
         public virtual async Task UpdateAsync(T entity)
         {
             _dbSet.Update(entity);
+            await _dbContext.SaveChangesAsync();
         }
 
         public virtual async Task UpdateRangeAsync(List<T> entities)
         {
             _dbSet.UpdateRange(entities);
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(object id)
         {
             var entity = await this.FirstOrDefaultAsync(id);
             _dbSet.Remove(entity);
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(T entity)
         {
             _dbSet.Remove(entity);
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task DeleteRangeAsync(List<T> entities)
         {
             _dbSet.RemoveRange(entities);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }
