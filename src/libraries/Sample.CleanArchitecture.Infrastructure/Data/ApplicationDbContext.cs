@@ -4,7 +4,7 @@ using Sample.CleanArchitecture.Domain.Entities;
 
 namespace Sample.CleanArchitecture.Infrastructure.Context;
 
-public class ApplicationDbContext : DbContext
+public sealed class ApplicationDbContext : DbContext
 {
     public ApplicationDbContext(DbContextOptions contextOptions) : base(options: contextOptions)
     {

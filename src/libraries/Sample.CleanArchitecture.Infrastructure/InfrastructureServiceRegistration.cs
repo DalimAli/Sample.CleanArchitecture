@@ -20,18 +20,17 @@ namespace Sample.CleanArchitecture.Infrastructure
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
         {
 
-            services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
+            services.AddSingleton<ISaveChangesInterceptor, AuditableEntityInterceptor>();
 
-            services.AddDbContext<ApplicationDbContext>((serviceProvider,options) =>
+            services.AddDbContext<ApplicationDbContext>((serviceProvider, options) =>
             {
                 options.AddInterceptors(serviceProvider.GetService<ISaveChangesInterceptor>());
                 options.UseSqlServer(configuration.GetConnectionString("CleanArchConnectionString"));
-                options.LogTo(x => Console.WriteLine(x)); 
-            }
-                );
+                options.LogTo(x => Console.WriteLine(x));
+            }, ServiceLifetime.Singleton);
 
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
-            services.AddScoped<ITestRepository, TestRepository>();           
+            services.AddScoped<ITestRepository, TestRepository>();
 
             return services;
         }

@@ -53,7 +53,7 @@ namespace Sample.CleanArchitecture.Infrastructure.Repository
 
         public async virtual Task<IReadOnlyList<T>> GetPagedAsync(int page, int size)
         {
-            return await _dbContext.Set<T>().Skip((page - 1) * size).Take(size).AsNoTracking().ToListAsync();
+            return await _dbSet.Skip((page - 1) * size).Take(size).AsNoTracking().ToListAsync();
         }
 
         public virtual async Task InsertAsync(T entity)

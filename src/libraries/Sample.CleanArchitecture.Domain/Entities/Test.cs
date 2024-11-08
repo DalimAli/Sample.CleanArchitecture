@@ -7,4 +7,6 @@ public class Test : Audit
     public long Id { get; set; }
     public string Name { get; set; }
     public decimal Cost { get; set; }
+
+    public List<Treatment> Treatments = new List<Treatment>();
 }
