@@ -33,7 +33,7 @@ public class TestController(ITestService testService) : ControllerBase
        return await testService.InsertAsync(test);
     }
 
-    [HttpPatch("update")]
+    [HttpPut("update")]
     public async Task<Test> Update([FromBody] Test test) 
     {
         return await testService.UpdateAsync(test);
